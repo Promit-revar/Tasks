@@ -1,5 +1,5 @@
 const fs=require('fs');
-const isPrime=(n)=>{
+exports.isPrime=(n)=>{
     if(n===0 || n===1){
         return false;
     }
@@ -11,30 +11,13 @@ const isPrime=(n)=>{
     }
     return true;
 }
-const isArmstrong=(n)=>{
+exports.isArmstrong=(n)=>{
    let  m=0,num=n;
+   let l=n.toString().length;
     while(n>0){
-        m+=Math.pow(n%10,3);
+        m+=Math.pow(n%10,l);
         //console.log(m,n);
         n=Math.floor(n/10);
     }
     return (num===m)?true:false;
 }
-const Main=()=>{
-    // let num=prompt("Enter the Number:");
-    let num=153;
-    fs.readFile('testcases.txt', (err, data) => {
-        if (err) throw err;
-        let inputs=data.toString().split('\n').map((item)=>{
-            return parseInt(item);
-        });
-        inputs.forEach(input => {
-            console.log("Number:"+input+"\nis Prime: "+isPrime(input)+"\nis ArmStrong: "+isArmstrong(input)+"\n\n\n");
-        })
-        
-        
-    })
-    //
-
-}
-Main();
