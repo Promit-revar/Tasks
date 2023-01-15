@@ -1,5 +1,5 @@
 const fs=require('fs');
-function ReplaceString(str){
+exports. ReplaceString=function(str){
     let result="";
     for(let i=0;i<str.length;i++){
         if( str.charCodeAt(i)>=65 && str.charCodeAt(i)<91){
@@ -15,7 +15,7 @@ function ReplaceString(str){
     }
     return result;
 }
-const ReplaceStringArrow = (str)=>{
+exports.ReplaceStringArrow = (str)=>{
     let result="";
     for(let i=0;i<str.length;i++){
         if(str.charCodeAt(i)>=65 && str.charCodeAt(i)<91){
@@ -31,12 +31,12 @@ const ReplaceStringArrow = (str)=>{
     }
     return result;
 }
-const MAIN=()=>{
-    fs.readFile("testcases.txt",(err,data)=>{
-        const inputs=data.toString().split('\n');
-        inputs.forEach(input=>{
-            console.log("Input: "+input+"\nReplaceString: "+ReplaceString(input)+"\nReplaceStringArrow: "+ReplaceStringArrow(input)+"\n\n\n");
-        })
-    })
-}
-MAIN();
+// const MAIN=()=>{
+//     fs.readFile("testcases.txt",(err,data)=>{
+//         const inputs=data.toString().split('\n');
+//         inputs.forEach(input=>{
+//             console.log("Input: "+input+"\nReplaceString: "+ReplaceString(input)+"\nReplaceStringArrow: "+ReplaceStringArrow(input)+"\n\n\n");
+//         })
+//     })
+// }
+// MAIN();

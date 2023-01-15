@@ -1,5 +1,5 @@
 const fs=require('fs');
-const isAllDigitsSameArrow=(num)=>{
+exports.isAllDigitsSameArrow=(num)=>{
     if(typeof(num)=='string') return "Number Should be an Integer";
     let num2=num%10;
     while(num>0){
@@ -8,7 +8,7 @@ const isAllDigitsSameArrow=(num)=>{
     }
     return true;
 }
-function isAllDigitsSame(num){
+exports.isAllDigitsSame=function(num){
     if(typeof(num)=='string') return "Number Should be an Integer";
     if(typeof(num)=='string') return "Number Should be an Integer";
     let num2=num%10;
@@ -25,9 +25,6 @@ const MAIN=()=>{
             return parseInt(item);
         });
         inputs.push("888888");
-        inputs.forEach(input => {
-            console.log("Number:"+input+"\nisAllDigitSame: "+isAllDigitsSame(input)+"\nisAllDigitSameArrow: "+isAllDigitsSameArrow(input)+"\n\n\n");
-        })
+        return inputs;
     });
 }
-MAIN();

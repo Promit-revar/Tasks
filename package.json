@@ -1,0 +1,22 @@
+{
+  "name": "tasks",
+  "version": "1.0.0",
+  "description": "Node js tasks Code academy!",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Promit-revar/Tasks.git"
+  },
+  "author": "Promit Revar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Promit-revar/Tasks/issues"
+  },
+  "homepage": "https://github.com/Promit-revar/Tasks#readme",
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
+}

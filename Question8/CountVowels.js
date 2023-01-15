@@ -1,5 +1,5 @@
 const fs=require('fs');
-function CountVowels(str){
+exports.CountVowels=function(str){
     let vowels=0;
     for(let i=0;i<str.length;i++){
         if(['a','e','i','o','u'].includes(str[i].toLowerCase())){
@@ -8,7 +8,7 @@ function CountVowels(str){
     }
     return vowels;
 }
-const CountVowelsArrow=(str)=>{
+exports.CountVowelsArrow=(str)=>{
     let vowels=0;
     for(let i=0;i<str.length;i++){
         if(['a','e','i','o','u'].includes(str[i].toLowerCase())){
@@ -17,12 +17,12 @@ const CountVowelsArrow=(str)=>{
     }
     return vowels;
 }
-const MAIN = ()=>{
-    fs.readFile("testcases.txt",(err,data)=>{
-        const inputs=data.toString().split('\n');
-        inputs.forEach(input=>{
-            console.log("Input: "+input+"\nCountVowels: "+CountVowels(input)+"\nCountVowelsArrow: "+CountVowelsArrow(input)+"\n\n\n");
-        });
-    });
-}
-MAIN();
+// const MAIN = ()=>{
+//     fs.readFile("testcases.txt",(err,data)=>{
+//         const inputs=data.toString().split('\n');
+//         inputs.forEach(input=>{
+//             console.log("Input: "+input+"\nCountVowels: "+CountVowels(input)+"\nCountVowelsArrow: "+CountVowelsArrow(input)+"\n\n\n");
+//         });
+//     });
+// }
+// MAIN();
