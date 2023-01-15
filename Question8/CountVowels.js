@@ -1,7 +1,7 @@
 const fs=require('fs');
 function CountVowels(str){
     let vowels=0;
-    for(var i=0;i<str.length;i++){
+    for(let i=0;i<str.length;i++){
         if(['a','e','i','o','u'].includes(str[i].toLowerCase())){
             vowels++;
         }
@@ -10,7 +10,7 @@ function CountVowels(str){
 }
 const CountVowelsArrow=(str)=>{
     let vowels=0;
-    for(var i=0;i<str.length;i++){
+    for(let i=0;i<str.length;i++){
         if(['a','e','i','o','u'].includes(str[i].toLowerCase())){
             vowels++;
         }
