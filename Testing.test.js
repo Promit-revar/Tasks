@@ -135,7 +135,7 @@ test('Question 5 Regular Function', () => {
         let inputs=data.toString().split('\n');
         inputs.forEach((input,i)=>{
             
-            expect(isLeapYear(parseInt(input))).toBe(JSON.parse(expected[i]));
+            expect(isLeapYear(parseInt(input))).toBe(expected[i]);
         })
     })
     })
@@ -149,7 +149,7 @@ test('Question 5 Arrow Function', () => {
         let inputs=data.toString().split('\n');
         inputs.forEach((input,i)=>{
             
-            expect(isLeapYearArrow(parseInt(input))).toBe(JSON.parse(expected[i]));
+            expect(isLeapYearArrow(parseInt(input))).toBe(expected[i]);
         })
     })
     })
@@ -163,7 +163,7 @@ test('Question 6 Regular Function', () => {
         let inputs=data.toString().split('\n');
         inputs.forEach((input,i)=>{
             
-            expect(StringCheck(parseInt(input))).toBe(JSON.parse(expected[i]));
+            expect(StringCheck(input)).toBe((expected[i]=="Invalid Input")?expected[i]:JSON.parse(expected[i]));
         })
     })
     })
@@ -177,7 +177,7 @@ test('Question 6 Arrow Function', () => {
         let inputs=data.toString().split('\n');
         inputs.forEach((input,i)=>{
             
-            expect(StringCheckArrow(parseInt(input))).toBe(JSON.parse(expected[i]));
+            expect(StringCheckArrow(input)).toBe((expected[i]=="Invalid Input")?expected[i]:JSON.parse(expected[i]));
         })
     })
     })
@@ -191,7 +191,7 @@ test('Question 7 Regular Function', () => {
         let inputs=data.toString().split('\n');
         inputs.forEach((input,i)=>{
             input=input.split(',');
-            expect(StringConcat(parseInt(input))).toBe(expected[i]);
+            expect(StringConcat(input)).toBe(expected[i]);
         })
     })
     })
@@ -200,12 +200,12 @@ test('Question 7 Regular Function', () => {
 test('Question 7 Arrow Function', () => {
     fs.readFile('./Question7/testcases.txt',(err,data)=>{
         fs.readFile('./Question7/Answers.txt',(error,answer)=>{
-            input=input.split(',');
+            
         let expected=answer.toString().split('\n');
         let inputs=data.toString().split('\n');
         inputs.forEach((input,i)=>{
-            
-            expect(StringConcatArrow(parseInt(input))).toBe(expected[i]);
+            input=input.split(',');
+            expect(StringConcatArrow(input)).toBe(expected[i]);
         })
     })
     })
@@ -219,7 +219,7 @@ test('Question 8 Regular Function', () => {
         let inputs=data.toString().split('\n');
         inputs.forEach((input,i)=>{
             
-            expect(CountVowels(parseInt(input))).toBe(parseInt(expected[i]));
+            expect(CountVowels(input)).toBe(parseInt(expected[i]));
         })
     })
     })
@@ -233,37 +233,38 @@ test('Question 8 Arrow Function', () => {
         let inputs=data.toString().split('\n');
         inputs.forEach((input,i)=>{
             
-            expect(CountVowelsArrow(parseInt(input))).toBe(parseInt(expected[i]));
+            expect(CountVowelsArrow(input)).toBe(parseInt(expected[i]));
         })
     })
     })
   
 });
-// test('Question 9 Regular Function', () => {
-//     fs.readFile('./Question9/testcases.txt',(err,data)=>{
-//         fs.readFile('./Question9/Answers.txt',(error,answer)=>{
 
-//         let expected=answer.toString().split('\n');
-//         let inputs=data.toString().split('\n');
-//         inputs.forEach((input,i)=>{
-            
-//             expect(isLeapYear(parseInt(input))).toEqual(JSON.parse(expected[i]));
-//         })
-//     })
-//     })
-  
-// });
-// test('Question 9 Arrow Function', () => {
-//     fs.readFile('./Question9/testcases.txt',(err,data)=>{
-//         fs.readFile('./Question9/Answers.txt',(error,answer)=>{
+test('Question 9 Regular Function', () => {
+    fs.readFile('./Question9/testcases.txt',(err,data)=>{
+        fs.readFile('./Question9/Answer.txt',(error,answer)=>{
 
-//         let expected=answer.toString().split('\n');
-//         let inputs=data.toString().split('\n');
-//         inputs.forEach((input,i)=>{
+        let expected=answer.toString().split('\n');
+        let inputs=data.toString().split('\n');
+        inputs.forEach((input,i)=>{
             
-//             expect(isLeapYearArrow(parseInt(input))).toEqual(JSON.parse(expected[i]));
-//         })
-//     })
-//     })
+            expect(ReplaceString(input)).toBe(expected[i]);
+        })
+    })
+    })
   
-// });
+});
+test('Question 9 Arrow Function', () => {
+    fs.readFile('./Question9/testcases.txt',(err,data)=>{
+        fs.readFile('./Question9/Answer.txt',(error,answer)=>{
+
+        let expected=answer.toString().split('\n');
+        let inputs=data.toString().split('\n');
+        inputs.forEach((input,i)=>{
+            
+            expect(ReplaceStringArrow(input)).toBe(expected[i]);
+        })
+    })
+    })
+  
+});
