@@ -26,14 +26,3 @@ exports.ChangeCase=function(str){
     }
     return result;
 }
-// const MAIN=()=>{
-//     fs.readFile('testcases.txt', (err, data) => {
-//         if (err) throw err;
-//         let inputs=data.toString().split('\n');
-//         inputs.forEach(str=>{
-//             //console.log(typeof(str));
-//             console.log("Input: "+str+"\nChangeCase: "+ChangeCase(str)+"\nChangeCaseArrow: "+ChangeCaseArrow(str)+"\n\n\n");
-//         })
-//     });
-// }
-// MAIN();

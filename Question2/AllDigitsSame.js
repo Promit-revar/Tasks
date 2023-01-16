@@ -18,13 +18,4 @@ exports.isAllDigitsSame=function(num){
     }
     return true;
 }
-const MAIN=()=>{
-    fs.readFile('testcases.txt', (err, data) => {
-        if (err) throw err;
-        let inputs=data.toString().split('\n').map((item)=>{
-            return parseInt(item);
-        });
-        inputs.push("888888");
-        return inputs;
-    });
-}
+

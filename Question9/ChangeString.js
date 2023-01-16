@@ -31,12 +31,3 @@ exports.ReplaceStringArrow = (str)=>{
     }
     return result;
 }
-// const MAIN=()=>{
-//     fs.readFile("testcases.txt",(err,data)=>{
-//         const inputs=data.toString().split('\n');
-//         inputs.forEach(input=>{
-//             console.log("Input: "+input+"\nReplaceString: "+ReplaceString(input)+"\nReplaceStringArrow: "+ReplaceStringArrow(input)+"\n\n\n");
-//         })
-//     })
-// }
-// MAIN();
