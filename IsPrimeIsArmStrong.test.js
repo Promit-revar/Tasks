@@ -1,4 +1,5 @@
 const {isPrime,isArmstrong}= require('./isPrimeOrArmstrong/Amstrong_or_prime');
+
 test('is Prime', () => {
     expect(isPrime(2)).toBe(true);
         
