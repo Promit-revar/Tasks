@@ -4,7 +4,8 @@
   "description": "Node js tasks Code academy!",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint":"npx eslint --fix"
   },
   "repository": {
     "type": "git",
