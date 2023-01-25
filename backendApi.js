@@ -35,7 +35,7 @@ http.createServer((req,res)=>{
       let index=parseInt(req.url.split('/').at(-1));
       if(index>tasks.length){
         res.writeHead(400);
-        res.end('Invalid Choice of Task');
+        res.end(JSON.stringify({error:'Invalid Choice of Task'}));
       }
       else{
         data=JSON.parse(data);
@@ -58,11 +58,13 @@ http.createServer((req,res)=>{
     req.on('end',()=>{
       data=JSON.parse(data);
       let index=parseInt(req.url.split('/').at(-1));
-      if(index>tasks.length){
+      if(index>tasks.length || !data.name ){
         res.writeHead(400);
-        res.end('Invalid Choice of Task');
+        res.end(JSON.stringify({error:'Invalid Choice of Task'}));
       }
       else{
+        data.isCompleted=false;
+        data.desc=(data.desc)?data.desc:"";
         tasks[index]=data;
         res.end(JSON.stringify(data));
       }
@@ -85,7 +87,7 @@ http.createServer((req,res)=>{
     let index=parseInt(req.url.split('/').at(-1));
     if(index>=tasks.length){
       res.writeHead(400);
-      res.end('Invalid Choice of Task');
+      res.end(JSON.stringify({error:'Invalid Choice of Task'}));
     }
     else{
       
