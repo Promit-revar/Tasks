@@ -64,7 +64,10 @@ http.createServer((req,res)=>{
       }
       else{
         data.isCompleted=false;
-        data.desc=(data.desc)?data.desc:"";
+        if(!data.desc){
+          data.desc="";
+        }
+       
         tasks[index]=data;
         res.end(JSON.stringify(data));
       }
