@@ -7,7 +7,7 @@ http.createServer((req,res)=>{
     res.write('Hello World!!');
     res.end();
   }
-  else if(req.url==='/tasks'){
+  else if(req.url==='/tasks' && req.method=='GET'){
     res.writeHead(200,{'Content-type':'text/json'});
     res.end(JSON.stringify({'data':tasks}));
   }
@@ -25,7 +25,7 @@ http.createServer((req,res)=>{
     });
 
   }
-  else if(req.method=='PATCH'){
+  else if(req.method==='PATCH'){
     res.writeHead(200,{'Content-type':'text/json'});
     let data='';
     req.on('data',(chunk)=>{
@@ -70,18 +70,30 @@ http.createServer((req,res)=>{
   }
   else if(req.method==='DELETE'){
     res.writeHead(200,{'Content-type':'text/json'});
-    let data='';
+    
+    tasks=tasks.filter((task)=>task.isCompleted===false);
+    
+    res.end(JSON.stringify(tasks));
+    
+   
+  }
+  else if(req.method=='GET' && req.url.match(/tasks\/[0-9]/)){
+    
+    res.writeHead(200,{'Content-type':'text/json'});
+    
     
     let index=parseInt(req.url.split('/').at(-1));
-    if(index>tasks.length){
+    if(index>=tasks.length){
       res.writeHead(400);
       res.end('Invalid Choice of Task');
     }
     else{
-      data=tasks[index];
-      tasks.splice(index,1);
-      res.end(JSON.stringify(data));
+      
+      res.end(JSON.stringify(tasks[index]));
     }
    
+  }
+  else{
+    res.end(req.url);
   }
 }).listen(8000,()=>console.log('Server running on port 8000!'));
