@@ -7,7 +7,7 @@ exports.getTasks=(req,res)=>{
 }
 exports.createTask=(req,res)=>{
 
-    let data=req.body;
+    const data=req.body;
     data.isCompleted=false;
     tasks.push(data);
     res.status(201).send(data);
@@ -15,14 +15,14 @@ exports.createTask=(req,res)=>{
 }
 exports.editTasks=(req,res)=>{
    
-    let index=parseInt(req.params.id);
+    const index=parseInt(req.params.id);
     tasks[index]=req.body;
     res.status(200).send({
         data:tasks[index]
     });
 }
 exports.editTasksPatch=(req,res)=>{
-    let data=req.body;
+    const data=req.body;
     for(const [key,val] of Object.entries(data)){
         
         tasks[parseInt(req.params.id)][key]=val;
