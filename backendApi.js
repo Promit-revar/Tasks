@@ -77,7 +77,7 @@ http.createServer((req,res)=>{
     
    
   }
-  else if(req.method=='GET' && req.url.match(/tasks\/[0-9]/)){
+  else if(req.method=='GET' && req.url.match(/tasks\/*[0-9]/)){
     
     res.writeHead(200,{'Content-type':'text/json'});
     
