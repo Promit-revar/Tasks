@@ -1,0 +1,10 @@
+const express = require('express');
+const {validateCreateTask,validatePutTask}=require('../middlewares/validate');
+const { getTasks, createTask, editTasks, editTasksPatch, deleteCompletedTasks } = require('./controllers/taskController');
+const router = express();
+router.get('/', getTasks);
+router.post('/tasks/create',validateCreateTask, createTask);
+router.put('/tasks/:id',validatePutTask, editTasks);
+router.patch('/tasks/:id', editTasksPatch);
+router.delete('/tasks', deleteCompletedTasks);
+module.exports = router;
